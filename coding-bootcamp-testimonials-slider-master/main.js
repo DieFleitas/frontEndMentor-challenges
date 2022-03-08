@@ -4,15 +4,19 @@ const slides = document.querySelectorAll('.slide');
 
 let index = 0;
 
+function display() {
+    slides.forEach(slide => {
+        slide.style.display = 'none';
+    });
+    slides[index].style.display = 'flex';
+}
+
 function nextSlide() {
     index++;
     if(index > slides.length - 1) {
         index = 0;
     }
-    slides.forEach(slide => {
-        slide.style.display = 'none';
-    });
-    slides[index].style.display = 'flex';
+   display();
 }
 
 function prevSlide() {
@@ -20,10 +24,7 @@ function prevSlide() {
     if(index < 0) {
         index = slides.length - 1;
     }
-    slides.forEach(slide => {
-        slide.style.display = 'none';
-    });
-    slides[index].style.display = 'flex';
+    display();
 }
 
 next.addEventListener('click', nextSlide)
