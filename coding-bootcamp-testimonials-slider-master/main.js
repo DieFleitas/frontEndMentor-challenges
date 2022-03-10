@@ -3,8 +3,8 @@ const prev = document.querySelector('.prev');
 const slides = document.querySelectorAll('.slide');
 
 let index = 0;
-
-function display() {
+display(index);
+function display(index) {
     slides.forEach(slide => {
         slide.style.display = 'none';
     });
@@ -16,7 +16,7 @@ function nextSlide() {
     if(index > slides.length - 1) {
         index = 0;
     }
-   display();
+    display(index);
 }
 
 function prevSlide() {
@@ -24,7 +24,7 @@ function prevSlide() {
     if(index < 0) {
         index = slides.length - 1;
     }
-    display();
+    display(index);
 }
 
 next.addEventListener('click', nextSlide)
